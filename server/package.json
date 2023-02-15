@@ -4,8 +4,8 @@
   "description": "backend for the application",
   "main": "server.js",
   "scripts": {
-    "start": "node ./dist/server.js",
-    "serverStart": "nodemon ./dist/server.js",
+    "start": "ts-node ./src/server.ts",
+    "serverStart": "ts-node-dev ./src/server.ts",
     "devStart": ""
   },
   "repository": {
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
-    "nodemon": "^2.0.20",
-    "sequelize-cli": "^6.6.0"
+    "sequelize-cli": "^6.6.0",
+    "ts-node-dev": "^2.0.0"
   }
 }
