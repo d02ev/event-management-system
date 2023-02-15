@@ -4,8 +4,8 @@
   "description": "backend for the application",
   "main": "server.js",
   "scripts": {
-    "start": "ts-node ./src/server.ts",
-    "serverStart": "nodemon ./src/server.ts",
+    "start": "node ./dist/server.js",
+    "serverStart": "nodemon ./dist/server.js",
     "devStart": ""
   },
   "repository": {
