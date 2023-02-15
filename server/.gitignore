@@ -822,3 +822,6 @@ poetry.toml
 
 # ruff
 .ruff_cache/
+
+# VS Code
+.vscode
