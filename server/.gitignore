@@ -825,3 +825,6 @@ poetry.toml
 
 # VS Code
 .vscode
+
+# .http file
+requests.http
