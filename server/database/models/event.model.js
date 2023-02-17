@@ -3,7 +3,6 @@ const Mongoose = require('mongoose');
 const eventSchema = new Mongoose.Schema({
     eventOrganiser: {
         type: Mongoose.Schema.Types.ObjectId,
-        ref: 'UserModel',
         required: true
     },
     title: {
