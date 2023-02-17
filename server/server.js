@@ -7,7 +7,7 @@ const ConnectDB = require('./database/config/config');
 const HandleError = require('./middlewares/error/error-handler.middleware');
 const UserRoutes = require('./routes/user.routes');
 const AdminRoutes = require('./routes/admin.routes');
-
+const EventRoutes = require('./routes/event.routes');
 
 const App = Express();
 
@@ -17,6 +17,7 @@ App.use(Express.urlencoded({ extended: true }));
 
 App.use('/api/v1/auth', UserRoutes);
 App.use('/api/v1/admin', AdminRoutes);
+App.use('/api/v1/event', EventRoutes);
 
 // error handler
 App.use(HandleError);
