@@ -250,27 +250,26 @@ Backend for a basic event management system where user can create events and inv
   - #### Users Model
 
     ```js
-        {
-        fullName: {
-            type: String,
-            required: true
-        },
-        email: {
-            type: String,
-            required: true,
-        },
-        role: {
-            type: Number,
-            required: true,
-            default: 0
-        },
-        passwordHash: {
-            type: String,
-            required: true
-        }
-
-        }, {
-        timestamps: true,
-        collection: 'users'
-        }
+    {
+    fullName: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    role: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    passwordHash: {
+        type: String,
+        required: true
+    }
+    }, {
+    timestamps: true,
+    collection: 'users'
+    }
     ```
