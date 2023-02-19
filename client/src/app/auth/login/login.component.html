@@ -8,20 +8,20 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form class="form">
+                    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="form-group mb-4">
                             <label>Email</label>
-                            <input type="email" class="form-control rounded-0" required>
+                            <input type="email" class="form-control rounded-0" formControlName="email" required>
                         </div>
                         <div class="form-group mb-4">
                             <label>Password</label>
-                            <input type="password" class="form-control rounded-0" required>
+                            <input type="password" class="form-control rounded-0" formControlName="password" required>
                         </div>
-                        <button type="button" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
                 <div class="card-footer">
-                    <p>Not A Registered User? <a routerLink="/auth/register" routerLinkActive="active">Register</a></p>
+                    <span>Not A Registered User? <a routerLink="/auth/register" routerLinkActive="active">Register</a></span>
                 </div>
             </div>
         </div>

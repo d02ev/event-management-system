@@ -1,4 +1,10 @@
 <div class="container">
+    <div *ngIf="isRequestComplete" class="alert alert-success" role="alert">
+        User Created Successfully!
+    </div>
+    <div *ngIf="isError" class="alert alert-danger" role="alert">
+        Error! {{errorMessage}}
+    </div>
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card rounded-0">
@@ -8,24 +14,24 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form class="form">
+                    <form class="form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                         <div class="form-group mb-4">
                             <label>Full Name</label>
-                            <input type="text" class="form-control rounded-0" required>
+                            <input type="text" class="form-control rounded-0" formControlName="fullName" required>
                         </div>
                         <div class="form-group mb-4">
                             <label>Email</label>
-                            <input type="email" class="form-control rounded-0" required>
+                            <input type="email" class="form-control rounded-0" formControlName="email" required>
                         </div>
                         <div class="form-group mb-4">
                             <label>Password</label>
-                            <input type="password" class="form-control rounded-0" required>
+                            <input type="password" class="form-control rounded-0" formControlName="password" required>
                         </div>
-                        <button type="button" class="btn btn-primary">Register</button>
+                        <button type="submit" class="btn btn-primary">Register</button>
                     </form>
                 </div>
                 <div class="card-footer">
-                    <p>Already Registered? <a routerLink="/auth/login" routerLinkActive="active">Login</a></p>
+                    <span>Already Registered? <a routerLink="/auth/login" routerLinkActive="active">Login</a></span>
                 </div>
             </div>
         </div>
