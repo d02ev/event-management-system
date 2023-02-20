@@ -17,6 +17,7 @@ import { GenerateEventComponent } from './event/generate-event/generate-event.co
 import { UserHomeComponent } from './event/user-home/user-home.component';
 import { EditEventComponent } from './event/edit-event/edit-event.component';
 import { HomeComponent } from './home/home.component';
+import { EventDetailsComponent } from './event/event-details/event-details.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     UserHomeComponent,
     EditEventComponent,
     HomeComponent,
+    EventDetailsComponent,
   ],
   imports: [
     BrowserModule,
