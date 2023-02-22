@@ -37,6 +37,16 @@ module.exports = class EventController {
         }
     };
 
+    static accessAEvent = async (req, res, next) => {
+        try {
+            const response = await EventService.getEventByIdAsync(req.params.eventId);
+            return res.status(200).json(response);
+        }
+        catch (err) {
+            return next(CreateError.InternalServerError);
+        }
+    };
+
     static accessAllPublicEvents = async (req, res, next) => {
         try {
             const response = await EventService.getAllPublicEventsAsync();
@@ -60,12 +70,12 @@ module.exports = class EventController {
     static modifyEvent = async (req, res, next) => {
         try {
             const response = await EventService.editEventAsync(req.params.eventId, {
-                title: modificationData.title,
-                description: modificationData.description,
-                eventDate: modificationData.eventDate,
-                eventTime: modificationData.eventTime,
-                eventType: modificationData.eventType,
-                emailInvites: modificationData.emailInvites
+                title: req.body.title,
+                description: req.body.description,
+                eventDate: req.body.eventDate,
+                eventTime: req.body.eventTime,
+                eventType: req.body.eventType,
+                emailInvites: req.body.emailInvites
             });
             return res.status(200).json({
                 status: 200,

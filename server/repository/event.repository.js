@@ -10,7 +10,8 @@ module.exports = class EventRepository {
                 eventTime: creationData.eventTime,
                 eventType: creationData.eventType,
                 emailInvites: creationData.emailInvites,
-                eventOrganiser: creationData.eventOrganiser
+                eventOrganiser: creationData.eventOrganiser,
+                isPublic: creationData.isPublic
             };
             const creationResponse = await EventModel(creationData).save();
 
@@ -31,9 +32,19 @@ module.exports = class EventRepository {
         }
     };
 
+    static getEventById = async (eventId) => {
+        try {
+            const event = await EventModel.findById(eventId);
+            return event;
+        }
+        catch (err) {
+            console.error('DB Error: ' + err);
+        }
+    };
+
     static getAllPublicEvents = async () => {
         try {
-            const publicEvents = await EventModel.find({ eventType: 'Public' });
+            const publicEvents = await EventModel.find({ isPublic: 1 })
             return publicEvents;
         }
         catch (err) {
@@ -59,7 +70,8 @@ module.exports = class EventRepository {
                 eventDate: modificationData.eventDate,
                 eventTime: modificationData.eventTime,
                 eventType: modificationData.eventType,
-                emailInvites: modificationData.emailInvites
+                emailInvites: modificationData.emailInvites,
+                isPublic: modificationData.isPublic
             };
             const modifiedEvent = await EventModel.findByIdAndUpdate(eventId, modificationData);
 
