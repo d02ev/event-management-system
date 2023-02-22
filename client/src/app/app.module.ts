@@ -18,6 +18,8 @@ import { UserHomeComponent } from './event/user-home/user-home.component';
 import { EditEventComponent } from './event/edit-event/edit-event.component';
 import { HomeComponent } from './home/home.component';
 import { EventDetailsComponent } from './event/event-details/event-details.component';
+import { EventDetailsPublicComponent } from './event/event-details-public/event-details-public.component';
+import { AdminEventsComponent } from './admin-events/admin-events.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { EventDetailsComponent } from './event/event-details/event-details.compo
     EditEventComponent,
     HomeComponent,
     EventDetailsComponent,
+    EventDetailsPublicComponent,
+    AdminEventsComponent,
   ],
   imports: [
     BrowserModule,
