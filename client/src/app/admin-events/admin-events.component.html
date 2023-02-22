@@ -1,9 +1,15 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/user/dashboard">EventManagement</a>
+        <a class="navbar-brand" routerLink="/admin/dashboard">EventManagement</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
+                <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" routerLink="/event/create" routerLinkActive="active">Organise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/event/my-events" routerLinkActive="active">My Events</a>
             </li>
         </ul>
         <ul class="navbar-nav d-flex justify-content-end">
@@ -30,7 +36,8 @@
                 <td><a routerLink="/event/details/{{event._id}}">{{ event.title }}</a></td>
                 <td> - </td>
                 <td>
-                    <button type="button" class="btn btn-danger" routerLink="/event/delete/{{event._id}}" (click)="deleteEvent(event._id)">
+                    <button type="button" class="btn btn-danger" routerLink="/event/delete/{{event._id}}"
+                        (click)="deleteEvent(event._id)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-trash" viewBox="0 0 16 16">
                             <path
@@ -55,7 +62,8 @@
                         </svg>
 
                     </button>
-                    <button type="button" class="btn btn-danger" routerLink="/event/delete/{{event._id}}" (click)="deleteEvent(event._id)">
+                    <button type="button" class="btn btn-danger" routerLink="/event/delete/{{event._id}}"
+                        (click)="deleteEvent(event._id)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-trash" viewBox="0 0 16 16">
                             <path

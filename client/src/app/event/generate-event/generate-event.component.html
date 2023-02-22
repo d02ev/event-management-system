@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/user/dashboard">EventManagement</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user/dashboard" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/event/create" routerLinkActive="active">Organise</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav d-flex justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link">Hey, {{ userName }}</a>
+            </li>
+        </ul>
+        <form class="d-flex justify-content-end">
+            <button class="btn btn-primary me-2" type="button" (click)="logout()">Logout</button>
+        </form>
+    </div>
+</nav>
+<div class="container">
+    <div *ngIf="isRequestComplete" class="alert alert-success" role="alert">
+        Success! {{ successMessage }}
+    </div>
+    <div *ngIf="isError" class="alert alert-danger" role="alert">
+        Error!
+    </div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        Organise An Event
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" [formGroup]="eventGenerationForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group mb-4">
+                            <label>Title</label>
+                            <input type="text" class="form-control rounded-0" formControlName="title" required />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Description</label>
+                            <input type="text" class="form-control rounded-0" formControlName="description" />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Event Date</label>
+                            <input type="date" class="form-control rounded-0" formControlName="eventDate" required/>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Event Time</label>
+                            <input type="time" class="form-control rounded-0" formControlName="eventTime" required />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Event Type</label>
+                            <select class="form-select" formControlName="eventType">
+                                <option selected value="Public">Public</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Invite</label>
+                            <input type="text" class="form-control rounded-0" formControlName="emailInvites" />
+                        </div>
+                        <button type="submit" class="btn btn-primary me-3">Schedule</button>
+                        <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

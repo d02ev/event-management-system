@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/user/dashboard">EventManagement</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user/dashboard" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/event/create" routerLinkActive="active">Organise</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav d-flex justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link">Hey, {{ userName }}</a>
+            </li>
+        </ul>
+        <form class="d-flex justify-content-end">
+            <button class="btn btn-primary me-2" type="button" (click)="logout()">Logout</button>
+        </form>
+    </div>
+</nav>
+<div class="container">
+    <div *ngIf="isError" class="alert alert-danger" role="alert">
+        Error Loading The Event Details!
+    </div>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        Event Details
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <div class="mb-2">
+                            <dt class="col-sm-3">Title</dt>
+                            <dd class="col-sm-9">{{eventDetails.title}}</dd>
+                        </div>
+                        <div class="mb-2">
+                            <dt class="col-sm-3 text-truncate">Description</dt>
+                            <dd class="col-sm-9">{{eventDetails.description}}</dd>
+                        </div>
+                        <div class="mb-2">
+                            <dt class="col-sm-3">Event Date</dt>
+                            <dd class="col-sm-9">{{eventDetails.eventDate}}</dd>
+                        </div>
+                        <div class="mb-2">
+                            <dt class="col-sm-3">Event Time</dt>
+                            <dd class="col-sm-9">{{eventDetails.eventTime}}</dd>
+                        </div>
+                        <div class="mb-2">
+                            <dt class="col-sm-3">Event Type</dt>
+                            <dd class="col-sm-9">{{eventDetails.eventType}}</dd>
+                        </div>
+                        <div class="">
+                            <dt class="col-sm-3 text-truncate">Invites</dt>
+                            <dd class="col-sm-9">{{eventDetails.emailInvites}}</dd>
+                        </div>
+                    </dl>
+                    <button type="button" class="btn btn-primary" (click)="onClick()">Go Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

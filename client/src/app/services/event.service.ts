@@ -20,14 +20,19 @@ export class EventService {
     return this._httpClient.get(this._baseUrl);
   }
 
+  // access event by id
+  public accessEventById(eventId: any): Observable<any> {
+    return this._httpClient.get(`${this._baseUrl}/${eventId}`);
+  }
+
   // access all public events
   public accessAllPublicEvents(): Observable<any> {
-    return this._httpClient.get(this._baseUrl + '/public');
+    return this._httpClient.get(this._baseUrl + '/public/all');
   }
 
   // access user created events
   public accessUserCreatedEvents(): Observable<any> {
-    return this._httpClient.get(this._baseUrl + '/dashboard');
+    return this._httpClient.get(this._baseUrl + '/dashboard/all');
   }
 
   // edit event

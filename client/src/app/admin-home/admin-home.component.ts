@@ -1,26 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { EventService } from 'src/app/services/event.service';
+import { AuthService } from '../services/auth.service';
+import { EventService } from '../services/event.service';
 
 @Component({
-  selector: 'app-user-home',
-  templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css'],
+  selector: 'app-admin-home',
+  templateUrl: './admin-home.component.html',
+  styleUrls: ['./admin-home.component.css'],
 })
-export class UserHomeComponent implements OnInit {
-  public pastEvents: any = [];
+export class AdminHomeComponent implements OnInit {
   public futureEvents: any = [];
-  public userName: any;
+  public pastEvents: any = [];
+  public userName: string = '';
+
   private _userEmail: any;
 
   constructor(
     private _eventService: EventService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this._eventService.accessUserCreatedEvents().subscribe({
+    this._eventService.accessAllEvents().subscribe({
       next: (response: any) => {
         response.forEach((event: any) => {
           if (new Date() < new Date(event.eventDate + ' ' + event.eventTime)) {
@@ -34,7 +38,7 @@ export class UserHomeComponent implements OnInit {
       },
       error: (err: any) => {},
       complete: () => {},
-    });
+    })
 
     this._userEmail = this._authService.getUserEmailFromToken();
     this.userName = this._authService.getUserNameFromEmail(this._userEmail);
@@ -48,7 +52,7 @@ export class UserHomeComponent implements OnInit {
     });
   }
 
-  public logout() {
+  logout(): void {
     this._authService.logoutUser();
   }
 }

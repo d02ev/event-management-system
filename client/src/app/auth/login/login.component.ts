@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   public isError: boolean = false;
   public errorMessage: string = '';
 
-  constructor(private _authService: AuthService) {}
+  constructor(private _authService: AuthService, private _router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -42,7 +43,17 @@ export class LoginComponent implements OnInit {
           this.isError = false;
         }, 3000);
       },
-      complete: () => {},
+      complete: () => {
+        if (this._authService.isAdmin()) {
+          this._router.navigate(['admin/dashboard']);
+        }
+        else if (this._authService.isSuperAdmin()) {
+          this._router.navigate(['super/dashboard']);
+        }
+        else {
+          this._router.navigate(['user/dashboard']);
+        }
+      },
     });
   }
 }
