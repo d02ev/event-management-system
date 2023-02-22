@@ -22,11 +22,14 @@ const eventSchema = new Mongoose.Schema({
     },
     eventType: {
         type: String,
-        default: 'Public'
     },
     emailInvites: {
         type: String,
         required: false
+    },
+    isPublic: {
+        type: Number,
+        default: 1
     }
 }, {
     timestamps: true,
