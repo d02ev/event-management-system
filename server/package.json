@@ -4,7 +4,8 @@
   "description": "backend for the application",
   "main": "server.js",
   "scripts": {
-    "serverStart": "nodemon ."
+    "serverStart": "nodemon .",
+    "clientStart": "cd ../client && npm start"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,6 @@
     "mongoose": "^6.9.1"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
   }
 }
