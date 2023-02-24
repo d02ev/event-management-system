@@ -4,8 +4,9 @@
   "description": "backend for the application",
   "main": "server.js",
   "scripts": {
-    "serverStart": "nodemon .",
-    "clientStart": "cd ../client && npm start"
+    "clientStart": "cd ../client && npm start",
+    "start": "npm run serverStart & npm run clientStart",
+    "serverStart": "nodemon ."
   },
   "repository": {
     "type": "git",
