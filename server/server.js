@@ -15,9 +15,9 @@ App.use(CORS());
 App.use(Express.json());
 App.use(Express.urlencoded({ extended: true }));
 
-App.use('/api/v1/auth', UserRoutes);
-App.use('/api/v1/admin', AdminRoutes);
-App.use('/api/v1/event', EventRoutes);
+App.use('/', UserRoutes);
+App.use('/', AdminRoutes);
+App.use('/', EventRoutes);
 
 // error handler
 App.use(HandleError);
